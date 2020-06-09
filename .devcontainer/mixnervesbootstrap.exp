@@ -1,0 +1,8 @@
+#!/usr/bin/env expect
+
+set timeout -1
+spawn mix archive.install hex nerves_bootstrap
+expect {
+    "\\\[Yn\\\] " { send "Y\n"; }
+}
+expect eof
