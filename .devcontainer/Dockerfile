@@ -25,9 +25,9 @@ RUN apt-get update && \
     apt-get install -y build-essential automake autoconf git squashfs-tools ssh-askpass pkg-config curl && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget https://github.com/fhunleth/fwup/releases/download/v1.7.0/fwup_1.7.0_amd64.deb && \
-    apt-get install -y ./fwup_1.7.0_amd64.deb && \
-    rm ./fwup_1.7.0_amd64.deb && \
+RUN wget https://github.com/fhunleth/fwup/releases/download/v1.8.0/fwup_1.8.0_amd64.deb && \
+    apt-get install -y ./fwup_1.8.0_amd64.deb && \
+    rm ./fwup_1.8.0_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && \
