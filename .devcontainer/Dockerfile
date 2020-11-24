@@ -30,7 +30,7 @@ RUN wget https://github.com/fhunleth/fwup/releases/download/v1.8.2/fwup_1.8.2_am
     apt-get install -y ./fwup_1.8.2_amd64.deb && \
     rm ./fwup_1.8.2_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
-# Make fake symbolic link for Windows environment
+# Create (fake) symbolic link for Windows environment
 RUN ln -s fwup /usr/bin/fwup.exe
 
 # Install hex and rebar
@@ -38,5 +38,8 @@ RUN mix local.hex --force
 RUN mix local.rebar --force
 # Install Mix environment for Nerves
 RUN mix archive.install hex nerves_bootstrap --force
+
+# Create symbolic link for archives of Nerves artifacts
+RUN ln -s /workspaces/nerves-devcontainer/.nerves ~/.nerves
 
 ENTRYPOINT /bin/bash
