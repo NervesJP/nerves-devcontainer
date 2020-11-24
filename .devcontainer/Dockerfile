@@ -30,20 +30,12 @@ RUN wget https://github.com/fhunleth/fwup/releases/download/v1.8.0/fwup_1.8.0_am
     rm ./fwup_1.8.0_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && \
-    apt-get install -y expect && \
-    rm -rf /var/lib/apt/lists/*
-
-COPY mixlocalhex.exp /tmp
-RUN expect /tmp/mixlocalhex.exp
-RUN rm /tmp/mixlocalhex.exp
-
-RUN mix local.rebar
-
-COPY mixnervesbootstrap.exp /tmp
-RUN expect /tmp/mixnervesbootstrap.exp
-RUN rm /tmp/mixnervesbootstrap.exp
-
 RUN ln -s fwup /usr/bin/fwup.exe
+
+# Install hex and rebar
+RUN mix local.hex --force
+RUN mix local.rebar --force
+# Install Mix environment for Nerves
+RUN mix archive.install hex nerves_bootstrap --force
 
 ENTRYPOINT /bin/bash
