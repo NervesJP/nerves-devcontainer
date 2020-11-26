@@ -1,10 +1,23 @@
 {
 	"name": "Nerves",
-	"dockerFile": "Dockerfile",
-	"extensions": [
-		"jakebecker.elixir-ls"
+	"image": "nervesjp/nerves",
+	// NOTE: original Dockerfile is maintained at https://github.com/NervesJP/docker-nerves/blob/main/Dockerfile
+	// You can also build Docker image locally by locating above file to here and uncomment next line 
+	//"dockerFile": "Dockerfile",
+
+	"mounts": [
+		"source=${localWorkspaceFolder}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+		"source=${localWorkspaceFolder}/.nerves,target=/root/.nerves,type=bind,consistency=cached"
 	],
+
 	"settings": {
 		"terminal.integrated.shell.linux": "bash"
-	}
+	},
+	
+	"extensions": [
+		"jakebecker.elixir-ls"
+	]
+
+	// Uncomment to connect as a non-root user. More info: https://aka.ms/vscode-remote/containers/non-root.
+	//"remoteUser": "vscode"
 }
