@@ -1,6 +1,7 @@
 {
 	"name": "Nerves",
-	"image": "nervesjp/nerves",
+	// Pull Docker image from DockerHub  https://hub.docker.com/r/nervesjp/nerves
+	"image": "nervesjp/nerves:0.1",
 	// NOTE: original Dockerfile is maintained at https://github.com/NervesJP/docker-nerves/blob/main/Dockerfile
 	// You can also build Docker image locally by locating above file to here and uncomment next line 
 	//"dockerFile": "Dockerfile",
