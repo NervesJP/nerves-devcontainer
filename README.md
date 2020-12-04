@@ -41,7 +41,7 @@ iex(1)>
 
 4. Note that you need to generate your SSH keys, only for the first time to login Docker image.
 ```Shell
-root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ssh-keygen -t rsa -N "" -f .ssh/id_rsa`
+root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ssh-keygen -t rsa -N "" -f .ssh/id_rsa
 ```
 
 ## Tips
