@@ -5,10 +5,10 @@ Nerves development workspace with Visual Studio Code dev-container (Remote - Con
 ## Requirements
 
 - [Docker Desktop](https://docs.docker.com/get-docker/)
-    - Docker has some requirements for host PC to be operated.
-    - See detailed requirements: [Windows](https://docs.docker.com/docker-for-windows/install/) / [macOS](https://docs.docker.com/docker-for-mac/install/)
+  - Docker has some requirements for host PC to be operated.
+  - See detailed requirements: [Windows](https://docs.docker.com/docker-for-windows/install/) / [macOS](https://docs.docker.com/docker-for-mac/install/)
 - [Visual Studio Code](https://code.visualstudio.com/download)
-    - [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extensions
+  - [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extensions
 
 ## Quick start
 
@@ -48,7 +48,7 @@ root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ssh-keygen -t rsa -N "" -f .s
 
 ### Manual build of Docker image locally
 
-This repository will clone pre-built image on [DockerHub](https://hub.docker.com/r/nervesjp/nerves).
+This repository will clone [pre-built image on Docker Hub](https://hub.docker.com/r/nervesjp/nerves).
 Original Dockerfile is maintained at  
 https://github.com/NervesJP/docker-nerves/blob/main/Dockerfile.  
 
