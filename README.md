@@ -87,6 +87,11 @@ $ fwup _build/${MIX_TARGET}_dev/nerves/images/<project_name>.fw
 
 Please let us know if you have a cool solution! ([issue#1](https://github.com/NervesJP/docker-nerves/issues/1))
 
+## Links
+
+- Elixir Forum Topic: [Nerves development environment with Docker (and VS Code) - Nerves Forum / Chat / Discussions - Elixir Programming Language Forum](https://elixirforum.com/t/nerves-development-environment-with-docker-and-vs-code/35973)
+- [Qiita article (in Japanese)](https://qiita.com/takasehideki/items/27005ba9c0d9eb693ea9)
+
 ## Contributors
 
 - [@matsujirushi](https://github.com/matsujirushi) : original (awesome!) contributor
