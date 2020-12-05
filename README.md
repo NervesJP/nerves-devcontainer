@@ -48,30 +48,32 @@ root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ssh-keygen -t rsa -N "" -f .s
 
 ### Manual build of Docker image locally
 
-This repository will clone [pre-built image on Docker Hub](https://hub.docker.com/r/nervesjp/nerves).
+This repository will clone [pre-built image on Docker Hub](https://hub.docker.com/r/nervesjp/nerves).  
 Original Dockerfile is maintained at  
 https://github.com/NervesJP/docker-nerves/blob/main/Dockerfile.  
+The number of Docker Tag and the Release number of this repository are associated with [the Release of GitHub repository for Dockerfile](https://github.com/NervesJP/docker-nerves/releases).
 
 You can also build Docker image locally by locating above Dockerfile to `./devcontainer` and uncommenting `//"dockerFile": "Dockerfile",` on `./devcontainer/devcontainer.json`.
 It means you can customize your own Nerves development environment as you want.
 
-### Mounted files about Nerves settings
+### Mounted directories about Elixir/Nerves settings
 
-Each time an image is execute, a filesystem into Docker image will disappear. So Nerves related setting directories are mounted in the current (this) directory on the host.
+Each time an image is execute, a filesystem into Docker image will disappear. So Elixir/Nerves related setting directories are mounted in the current (this) directory on the host.
 
-First directory is `${PWD}/.ssh` that is expected to contain `id_rsa` and `id_rsa.pub` SSH key pairs. 
+First directory is `${PWD}./hex` that will be mounted to `~/.hex`. It keeps Hex archives.  
+Second, `${PWD}./nerves` will be mounted to `~/.nerves`. It keeps archives of Nerves toolchains and nerves_system_br.  
+If they disappeared when Docker container was restarted, you need to download archives every time you operate `mix deps.get`.  
+So we decided to mount it on this directory. 
+Although `mix deps.get` at first will take a while to unzip archives to `./nerves/artifacts` due to poor performance about bindings between host and container filesystems, we think it is acceptable compared that we always have to wait when running mix `deps.get` for a long time.
+
+The last one is `${PWD}/.ssh` that is expected to contain `id_rsa` and `id_rsa.pub` SSH key pairs. 
 They are used for the construction of Nerves firmware and secure connection to Nerves devices.  
 It is mounted to `~/.ssh/` on Docker image. 
 To generate your SSH keys, you need to operate `ssh-keygen -t rsa -N "" -f /workspaces/nerves-devcontainer/.ssh/id_rsa` after logging into Docker image for the first time.
 
-Second is `${PWD}./nerves` that is mounted to `~/.nerves`. It keeps archives of Nerves toolchains and nerves_system_br.  
-If it disappeared when Docker container was restarted, you need to download archives every time you operate `mix deps.get`.  
-So we decided to mount it on this directory. 
-Although `mix deps.get` at first will take a while to unzip archives to `./nerves/artifacts` due to poor performance about bindings between host and container filesystems, we think it is acceptable compared that we always have to wait when running mix `deps.get` for a long time.
-
 In addition, your Nerves project can be kept on the current directory by the VS Code automatic feature.
 
-### burn Nerves firmware to microSD card
+### Burn Nerves firmware to microSD card
 
 Docker has restrict policies to avoid effecting host environment. Therefore, `mix burn` cannot be operated from Docker image because there is no right to access `/dev` to on host as a root user.
 
