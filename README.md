@@ -13,14 +13,14 @@ Nerves development workspace with Visual Studio Code dev-container (Remote - Con
 ## Quick start
 
 1. Clone this repository  
-```Shell
+```shell-session
 git clone https://github.com/NervesJP/nerves-devcontainer
 ```
 
 2. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette (F1) or quick actions Status bar item, and select the project folder you cloned at Step 1.
 
 3. After a while, you can enjoy Nerves/Elixir development with Bash on Docker image and VS Code like as follows.  
-```Shell
+```shell-session
 root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ls 
 LICENSE.txt  README.md
 root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ls ~/.mix/*
@@ -40,7 +40,7 @@ iex(1)>
 ```
 
 4. Note that you need to generate your SSH keys, only for the first time to login Docker image.
-```Shell
+```shell-session
 root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ssh-keygen -t rsa -N "" -f .ssh/id_rsa
 ```
 
@@ -82,7 +82,7 @@ https://github.com/fhunleth/fwup
 
 After installing `fwup` on the host according to [this step](https://github.com/fhunleth/fwup#installing), please do following command on the host terminal (e.g., PowerShell as Administrator, Terminal.app).
 
-```Shell
+```shell-session
 $ cd <your_nerves_project_dir>
 $ fwup _build/${MIX_TARGET}_dev/nerves/images/<project_name>.fw
 ```
