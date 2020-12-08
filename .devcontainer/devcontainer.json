@@ -1,7 +1,7 @@
 {
 	"name": "Nerves",
 	// Pull Docker image from DockerHub  https://hub.docker.com/r/nervesjp/nerves
-	"image": "nervesjp/nerves:0.1.1",
+	"image": "nervesjp/nerves:0.2",
 	// NOTE: original Dockerfile is maintained at https://github.com/NervesJP/docker-nerves/blob/main/Dockerfile
 	// You can also build Docker image locally by locating above file to here and uncomment next line 
 	//"dockerFile": "Dockerfile",
@@ -18,7 +18,14 @@
 	
 	"extensions": [
 		"jakebecker.elixir-ls"
-	]
+	],
+
+	// This section sets environment variables for Nerves development
+	"remoteEnv": {
+		"MIX_TARGET": "rpi3",
+		"WIFI_SSID": "xxxxxxxx",
+		"WIFI_PSK": "yyyyyyyy"
+	}
 
 	// Uncomment to connect as a non-root user. More info: https://aka.ms/vscode-remote/containers/non-root.
 	//"remoteUser": "vscode"
