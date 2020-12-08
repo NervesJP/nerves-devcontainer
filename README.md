@@ -73,6 +73,15 @@ To generate your SSH keys, you need to operate `ssh-keygen -t rsa -N "" -f /work
 
 In addition, your Nerves project can be kept on the current directory by the VS Code automatic feature.
 
+### Set environment variables for Nerves development
+
+You can set your own environment variables with `remoteEnv` option in `./devcontainer/devcontainer.json`.
+
+By default, `${MIX_TARGET}` is set to `rpi3` when runing the dev-container.
+Please change the value accordingly if your [target of Nerves](https://hexdocs.pm/nerves/targets.html) is already determined by something other than rpi3.
+
+In addition to this, here we define environment variables for WiFi settings. You may set these values of `${WIFI_SSID}` and `${WIFI_PSK}` according to the WiFi access point. See ["Connect to a target device" on this article](https://dev.to/mnishiguchi/elixir-nerves-get-started-with-led-blinking-on-raspberry-pi-2l1i) for details.
+
 ### Burn Nerves firmware to microSD card
 
 Docker has restrict policies to avoid effecting host environment. And also, it is not possible to pass through a USB device (or a serial port) to a container as it requires support at the hypervisor level both in [Windows](https://docs.docker.com/docker-for-windows/faqs/#can-i-pass-through-a-usb-device-to-a-container) and [macOS](https://docs.docker.com/docker-for-mac/faqs/#can-i-pass-through-a-usb-device-to-a-container) as the host.  

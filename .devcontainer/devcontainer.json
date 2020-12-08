@@ -18,7 +18,14 @@
 	
 	"extensions": [
 		"jakebecker.elixir-ls"
-	]
+	],
+
+	// This section sets environment variables for Nerves development
+	"remoteEnv": {
+		"MIX_TARGET": "rpi3",
+		"WIFI_SSID": "xxxxxxxx",
+		"WIFI_PSK": "yyyyyyyy"
+	}
 
 	// Uncomment to connect as a non-root user. More info: https://aka.ms/vscode-remote/containers/non-root.
 	//"remoteUser": "vscode"
