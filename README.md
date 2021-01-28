@@ -30,15 +30,15 @@ Nerves development workspace with Visual Studio Code dev-container (Remote - Con
    /root/.mix/rebar  /root/.mix/rebar3
    /root/.mix/archives:
 
-   hex-0.20.6  nerves_bootstrap-1.10.0
+   hex-0.21.1  nerves_bootstrap-1.10.1
    root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# elixir --version
-   Erlang/OTP 23 [erts-11.1.3] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
+   Erlang/OTP 23 [erts-11.1.7] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
 
-   Elixir 1.11.2 (compiled with Erlang/OTP 23)
+   Elixir 1.11.3 (compiled with Erlang/OTP 23)
    root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# iex
-   Erlang/OTP 23 [erts-11.1.3] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
+   Erlang/OTP 23 [erts-11.1.7] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
 
-   Interactive Elixir (1.11.2) - press Ctrl+C to exit (type h() ENTER for help)
+   Interactive Elixir (1.11.3) - press Ctrl+C to exit (type h() ENTER for help)
    iex(1)>
    ```
 
