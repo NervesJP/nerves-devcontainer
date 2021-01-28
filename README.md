@@ -103,6 +103,45 @@ for the first time.
 In addition, your Nerves project can be kept on the current directory by the VS
 Code automatic feature.
 
+### Speedup to build Nerves apps
+
+By default, the Remote-Container extension automatically mounts 
+`/works/nerves-devcontainer` on the container at the current location on 
+the host. Working here is efficient because you can edit the files in the
+Nerves project with the VS Code GUI, and you can also access them from 
+the host. However, you may feel building the Nerves application becomes 
+slow due to the performance of bindings between their filesystems.
+
+One way to establish both speed up the performance for building and keep 
+the development efficiency is to create a symbolic link in the working 
+directory inside the container from the location.
+
+```bash
+root@25168de60a54:/workspaces/nerves-devcontainer# pwd
+/workspaces/nerves-devcontainer
+root@25168de60a54:/workspaces/nerves-devcontainer# pushd ~
+~ /workspaces/nerves-devcontainer
+root@25168de60a54:~# pwd
+/root
+root@25168de60a54:~# mix nerves.new hello_nerves
+...
+root@25168de60a54:~# ln -s /root/hello_nerves /workspaces/nerves-devcontainer/hello_nerves
+root@25168de60a54:~# popd
+/workspaces/nerves-devcontainer
+root@25168de60a54:/workspaces/nerves-devcontainer# cd hello_nerves
+root@25168de60a54:/workspaces/nerves-devcontainer/hello_nerves# mix do deps.get, firmware
+...
+```
+
+Again, note that a filesystem into the Docker image will disappear when 
+it is regenerated. When development is settled, we recommend copying to 
+the file system bound to the host (or pushing to your GitHub :D
+
+```shell
+root@25168de60a54:/workspaces/nerves-devcontainer# rm hello_nerves
+root@25168de60a54:/workspaces/nerves-devcontainer# cp -r /root/hello_nerves /workspaces/nerves-devcontainer
+```
+
 ### Set environment variables for Nerves development
 
 You can set your own environment variables with `remoteEnv` option in
