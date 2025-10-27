@@ -23,29 +23,29 @@ Nerves development workspace with Visual Studio Code dev-container (Remote - Con
 3. After a while, you can enjoy Nerves/Elixir development with Bash on Docker image and VS Code like as follows.
 
    ```bash
-   root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ls
+   root@d343da456c14:/workspaces/nerves-devcontainer# ls 
    LICENSE.txt  README.md
-
-   root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ls ~/.mix/*
-   /root/.mix/rebar  /root/.mix/rebar3
+   root@d343da456c14:/workspaces/nerves-devcontainer# ls ~/.mix/*
    /root/.mix/archives:
-
-   hex-0.21.1  nerves_bootstrap-1.10.1
-   root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# elixir --version
-   Erlang/OTP 23 [erts-11.1.7] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
-
-   Elixir 1.11.3 (compiled with Erlang/OTP 23)
-   root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# iex
-   Erlang/OTP 23 [erts-11.1.7] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
-
-   Interactive Elixir (1.11.3) - press Ctrl+C to exit (type h() ENTER for help)
-   iex(1)>
+   hex-2.3.1  nerves_bootstrap-1.14.0
+   
+   /root/.mix/elixir:
+   1-18
+   root@d343da456c14:/workspaces/nerves-devcontainer# elixir --version
+   Erlang/OTP 27 [erts-15.2.7] [source] [64-bit] [smp:16:16] [ds:16:16:10] [async-threads:1] [jit:ns]
+   
+   Elixir 1.18.3 (compiled with Erlang/OTP 27)
+   root@d343da456c14:/workspaces/nerves-devcontainer# iex 
+   Erlang/OTP 27 [erts-15.2.7] [source] [64-bit] [smp:16:16] [ds:16:16:10] [async-threads:1] [jit:ns]
+   
+   Interactive Elixir (1.18.3) - press Ctrl+C to exit (type h() ENTER for help)
+   iex(1)> 
    ```
 
 4. Note that you need to generate your SSH keys, only for the first time to login Docker image.
 
    ```bash
-   root@ebc5e1a19ae3:/workspaces/nerves-devcontainer# ssh-keygen -t rsa -N "" -f .ssh/id_rsa
+   root@d343da456c14:/workspaces/nerves-devcontainer# ssh-keygen -t rsa -N "" -f .ssh/id_rsa
    ```
 
 ## Tips
@@ -147,10 +147,10 @@ root@25168de60a54:/workspaces/nerves-devcontainer# cp -r /root/hello_nerves /wor
 You can set your own environment variables with `remoteEnv` option in
 `./devcontainer/devcontainer.json`.
 
-By default, `${MIX_TARGET}` is set to `rpi3` when running the dev-container.
+By default, `${MIX_TARGET}` is set to `rpi5` when running the dev-container.
 
 Please change the value accordingly if your [target of Nerves](https://hexdocs.pm/nerves/targets.html)
-is already determined by something other than `rpi3`.
+is already determined by something other than `rpi5`.
 
 In addition to this, here we define environment variables for WiFi settings.
 
