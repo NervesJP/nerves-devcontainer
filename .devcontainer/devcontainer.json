@@ -22,7 +22,7 @@
 	},
 	// This section sets environment variables for Nerves development
 	"remoteEnv": {
-		"MIX_TARGET": "rpi3",
+		"MIX_TARGET": "rpi5",
 		"WIFI_SSID": "xxxxxxxx",
 		"WIFI_PSK": "yyyyyyyy"
 	}

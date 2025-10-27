@@ -147,10 +147,10 @@ root@25168de60a54:/workspaces/nerves-devcontainer# cp -r /root/hello_nerves /wor
 You can set your own environment variables with `remoteEnv` option in
 `./devcontainer/devcontainer.json`.
 
-By default, `${MIX_TARGET}` is set to `rpi3` when running the dev-container.
+By default, `${MIX_TARGET}` is set to `rpi5` when running the dev-container.
 
 Please change the value accordingly if your [target of Nerves](https://hexdocs.pm/nerves/targets.html)
-is already determined by something other than `rpi3`.
+is already determined by something other than `rpi5`.
 
 In addition to this, here we define environment variables for WiFi settings.
 
