@@ -10,12 +10,16 @@
 		"source=${localWorkspaceFolder}/.nerves,target=/root/.nerves,type=bind,consistency=cached",
 		"source=${localWorkspaceFolder}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
 	],
-	"settings": {
-		"terminal.integrated.shell.linux": "bash"
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.shell.linux": "bash"
+			},
+			"extensions": [
+				"jakebecker.elixir-ls"
+			]
+		}
 	},
-	"extensions": [
-		"jakebecker.elixir-ls"
-	],
 	// This section sets environment variables for Nerves development
 	"remoteEnv": {
 		"MIX_TARGET": "rpi3",
